@@ -1,0 +1,52 @@
+﻿Bài 4: Chẩn đoán và "Phẫu thuật" Prompt Sơ sài thành Chuẩn CREATE 
+Phần 1: Phân tích chẩn đoán lỗi  
+  1. Chỉ ra chi tiết các thành phần CREATE bị khuyết trong từng câu lệnh ở Bảng trên.    
+
+
+    Bộ phận
+	Câu lệnh sơ sài hiện tại
+	Thành phần CREATE bị khuyết & Hậu quả
+	1. CSKH
+	"Viết tin nhắn xin lỗi khách vì hàng giao chậm."
+	Character (Vai trò): Không rõ ai nhắn tin, dẫn đến giọng văn thiếu chuyên nghiệp, sáo rỗng.
+Adjustment (Điều chỉnh/Ràng buộc): Thiếu phương án đền bù và thời gian giao dự kiến
+Type of Output (Định dạng): Không quy định độ dài bao nhiêu chữ và gửi qua đâu.
+	2. Bán hàng
+	"Tư vấn cho anh khách mua laptop gaming."
+	 Request (Yêu cầu chi tiết): Thiếu về nhu cầu game cụ thể nên AI liệt kê tràn lan 10 máy từ rẻ đến đắt.
+ Extras (Bối cảnh/Dữ liệu): Không cung cấp thông tin về những ưu đãi của TechShop.
+Examples (Ví dụ mẫu): không có cấu trúc tư vấn khách hàng về dòng máy đó có gì
+	3. Bảo hành
+	"Báo giá thay màn hình laptop vỡ cho khách."
+	• Character (Vai trò): Thiếu vai trò kỹ thuật viên nên câu trả lời thiếu sự tin cậy, chuyên môn.
+Adjustment (Điều chỉnh/Dữ liệu): Không kèm bảng giá và quy định bảo hành của hãng nên AI chỉ trả lời chung chung "tùy model giá khác nhau".
+Type of Output (Định dạng): Chưa định dạng thành bảng báo giá rõ ràng cho khách dễ xem.
+	
+
+
+
+
+
+Phần 2: Nâng cấp chuẩn hóa câu lệnh  
+ 2. "Phẫu thuật" và viết lại trọn vẹn 3 câu lệnh trên thành 3 Master Prompt chuẩn CREATE, bổ sung đầy đủ bối cảnh thực tế của TechShop.
+1. Bộ phận CSKH
+* Character (Vai trò): Đóng vai là trưởng nhóm chăm sóc khách hàng của TechShop.
+* Request (Yêu cầu): Viết một tin nhắn xin lỗi khách hàng vì đơn hàng laptop bị giao trễ do sự cố vận chuyển.
+* Examples (Ví dụ mẫu): "Xin chào anh/chị, TechShop thành thật xin lỗi vì đơn hàng đã giao chậm hơn dự kiến..."
+* Adjustment (Điều chỉnh): Giọng văn chân thành. Thêm vào đó, sẽ cam kết giao hàng vào ngày mai và kèm tặng voucher giảm giá 100.000đ cho lần mua sau
+* Type of Output (Định dạng): Tin nhắn gửi qua Zalo hoặc SMS, độ dài khoảng 5-6 dòng.
+* Extras (Bối cảnh): Khách hàng là thành viên đã mua nhiều ở TechShop.
+2. Bộ phận Bán hàng
+* Character (Vai trò): Đóng vai Chuyên viên tư vấn bán hàng tại TechShop.
+* Request (Yêu cầu): Tư vấn và đề xuất 3 mẫu laptop gaming phù hợp nhất cho khách hàng nam, hỏi nhu cầu game của khách hàng là game gì để đưa ra hãng máy ok nhất.
+* Examples (Ví dụ mẫu): Trình bày mỗi máy theo mẫu: Tên máy – Giá bán – Điểm mạnh và quà tặng kèm.
+* Adjustment (Điều chỉnh): Chỉ chọn các máy có tầm giá từ 20 -> 25 triệu đồng, có cấu hình mạnh và không dùng từ ngữ quá khó hiểu..
+* Type of Output (Định dạng): làm dạng danh sách các máy tốt với tầm giá 20 -> 25tr và các ưu điểm của mỗi máy
+* Extras (Bối cảnh): TechShop đang có chương trình giảm 50% cho học sinh, sinh viên và tặng kèm balo gaming khi mua đồ tại Techshop.
+3.  Bảo hành laptop bị vỡ do khác làm rơi
+* Character (Vai trò): Đóng vai Kỹ thuật viên tại TechShop.
+* Request (Yêu cầu): Soạn báo cáo phản hồi về giá thay màn hình bị vỡ do khách hàng làm rơi (hãng máy tính cụ thể)
+* Examples (Ví dụ mẫu):  đưa ra một cái bảng cụ thể về (| Chi phí sửa | Thời gian thay | Thời hạn bảo hành).
+* Adjustment (Điều chỉnh): chỉ ra chỗ bị vỡ nặng nên không nằm trong chương trình bảo hành miễn phí của shop, báo giá chính xác là khoảng 1tr500 và giọng văn phải lịch sự.
+* Type of Output (Định dạng): làm ra một bảng bao gồm  báo giá sửa, thời gian thay và hạn bảo hành.
+* Extras (Bối cảnh): cac linh kiện thay hiện đang có sẵn tại chi nhánh, thời gian thay lấy liền trong 60 phút và bảo hành linh kiện mới 6 tháng.
